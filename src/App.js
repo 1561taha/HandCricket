@@ -4,8 +4,11 @@ import Leaderboard from "./components/Leaderboard";
 import PlayerProfile from "./components/PlayerProfile";
 import { GameProvider } from './context/GameContext';
 import GameContainer from './components/GameContainer';
+import HowToPlayPage from './components/HowToPlayPage';
 import styled from "styled-components";
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 
 const AppBg = styled.div`
   min-height: 100vh;
@@ -62,20 +65,28 @@ function App() {
   const [address, setAddress] = useState("");
 
   return (
-    <GameProvider contract={contract}>
-      <AppBg>
-        <Sidebar>
-          <WalletConnect setContract={setContract} setAddress={setAddress} />
-          <PlayerProfile contract={contract} address={address} />
-        </Sidebar>
-        <MainArea>
-        <GameContainer />
-          <LeaderboardWrapper>
-            <Leaderboard contract={contract} />
-          </LeaderboardWrapper>
-        </MainArea>
-      </AppBg>
-    </GameProvider>
+    <BrowserRouter>
+      <GameProvider contract={contract}>
+        <Routes>
+          <Route path="/how-to-play" element={<HowToPlayPage />} />
+          <Route path="/" element={
+            <AppBg>
+              <Sidebar>
+                <WalletConnect setContract={setContract} setAddress={setAddress} />
+                <PlayerProfile contract={contract} address={address} />
+              </Sidebar>
+              <MainArea>
+                <GameContainer />
+                <LeaderboardWrapper>
+                  <Leaderboard contract={contract} />
+                </LeaderboardWrapper>
+              </MainArea>
+            </AppBg>
+          } />
+        </Routes>
+      </GameProvider>
+      <Analytics />
+    </BrowserRouter>
   );
 }
 

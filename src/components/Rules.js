@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Rules.css';
+import { Link } from 'react-router-dom';
 
 const Rules = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -88,6 +89,20 @@ const Rules = () => {
               <span>6 fingers</span>
             </div>
           </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 24 }}>
+          <Link to="/how-to-play" style={{
+            display: 'inline-block',
+            padding: '12px 32px',
+            borderRadius: '10px',
+            background: 'linear-gradient(135deg, #667eea 0%, #43e97b 100%)',
+            color: 'white',
+            fontWeight: 700,
+            fontSize: '1.08rem',
+            textDecoration: 'none',
+            boxShadow: '0 4px 16px rgba(102, 126, 234, 0.13)',
+            transition: 'all 0.2s',
+          }}>Full Guide</Link>
         </div>
       </div>
     </div>
