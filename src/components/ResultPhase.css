@@ -1,0 +1,269 @@
+.result-phase {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.result-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  margin-bottom: 40px;
+}
+
+.result-emoji {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  animation: bounce 1s ease-in-out;
+}
+
+.result-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #667eea;
+}
+
+.result-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.final-scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.score-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 2px solid #eee;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.score-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.player-final {
+  border-color: #4facfe;
+}
+
+.computer-final {
+  border-color: #f093fb;
+}
+
+.score-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.final-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.score-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #667eea;
+}
+
+.score-label {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.wickets-info {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.vs-final {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #333;
+}
+
+.result-message-box {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.result-message-box p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d46b08;
+  margin: 0;
+}
+
+.action-buttons {
+  margin-top: 30px;
+}
+
+.play-again-btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #667eea;
+  color: white;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.play-again-btn:hover {
+  transform: translateY(-3px);
+  background: #5a6fd8;
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animations */
+@keyframes scoreReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Winner highlight */
+.score-card.winner {
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  animation: winnerGlow 2s ease-in-out infinite;
+}
+
+@keyframes winnerGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .result-container {
+    padding: 30px 20px;
+  }
+  
+  .result-emoji {
+    font-size: 4rem;
+  }
+  
+  .result-title {
+    font-size: 2rem;
+  }
+  
+  .result-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .final-scores {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .vs-final {
+    order: -1;
+    font-size: 1.5rem;
+  }
+  
+  .score-card {
+    padding: 20px;
+  }
+  
+  .score-number {
+    font-size: 2.5rem;
+  }
+  
+  .play-again-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .result-container {
+    padding: 20px 15px;
+  }
+  
+  .result-emoji {
+    font-size: 3rem;
+  }
+  
+  .result-title {
+    font-size: 1.8rem;
+  }
+  
+  .result-subtitle {
+    font-size: 1rem;
+  }
+  
+  .score-card {
+    padding: 15px;
+  }
+  
+  .score-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .score-number {
+    font-size: 2rem;
+  }
+  
+  .result-message-box p {
+    font-size: 1rem;
+  }
+  
+  .play-again-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+} 

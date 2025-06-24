@@ -1,0 +1,266 @@
+.choice-phase {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.choice-header {
+  margin-bottom: 40px;
+}
+
+.choice-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.choice-header p {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.choice-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.choice-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.choice-card:hover::before {
+  transform: scaleX(1);
+}
+
+.choice-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.bat-card {
+  border-left: 4px solid #4facfe;
+}
+
+.bowl-card {
+  border-left: 4px solid #f093fb;
+}
+
+.choice-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.choice-card h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.choice-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.choice-card ul {
+  text-align: left;
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+.choice-card li {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.choice-card li::marker {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.choice-btn {
+  width: 100%;
+  padding: 15px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bat-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.bat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+}
+
+.bowl-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+}
+
+.bowl-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(240, 147, 251, 0.4);
+}
+
+.choice-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.choice-btn:hover::before {
+  left: 100%;
+}
+
+.choice-tip {
+  background: rgba(255, 193, 7, 0.1);
+  border: 2px solid rgba(255, 193, 7, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.choice-tip p {
+  font-size: 1rem;
+  color: #856404;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .choice-header h2 {
+    font-size: 2rem;
+  }
+  
+  .choice-header p {
+    font-size: 1rem;
+  }
+  
+  .choice-options {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .choice-card {
+    padding: 25px;
+  }
+  
+  .choice-icon {
+    font-size: 3rem;
+  }
+  
+  .choice-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .choice-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .choice-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .choice-card {
+    padding: 20px;
+  }
+  
+  .choice-icon {
+    font-size: 2.5rem;
+  }
+  
+  .choice-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .choice-card p {
+    font-size: 0.9rem;
+  }
+  
+  .choice-card li {
+    font-size: 0.9rem;
+  }
+  
+  .choice-btn {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Animation for cards */
+.choice-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.bat-card {
+  animation-delay: 0.1s;
+}
+
+.bowl-card {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
