@@ -8,7 +8,7 @@ const Rules = () => {
   return (
     <div className="rules-container">
       <div className="rules-header" onClick={() => setIsExpanded(!isExpanded)}>
-        <h3>How to Play</h3>
+        <h3>How to Play Somnia Hand Cricket</h3>
         <span className="expand-icon">{isExpanded ? '−' : '+'}</span>
       </div>
       
@@ -16,8 +16,8 @@ const Rules = () => {
         <div className="rule-section">
           <h4>🎮 Game Overview</h4>
           <p>
-            <strong>Hand Cricket</strong> is a strategic game where players show numbers using fingers (1-6).
-            The goal is to score more runs than your opponent while defending your wickets.
+            <strong>Somnia Hand Cricket</strong> is a strategic blockchain-based game where players show numbers using fingers (1-6).
+            The goal is to score more runs than your opponent while defending your wickets. All your stats and achievements are stored on the Somnia blockchain!
           </p>
         </div>
 
@@ -48,6 +48,16 @@ const Rules = () => {
             <li>Two innings: First team bats, then second team chases</li>
             <li>Team with highest score wins</li>
             <li>If scores are tied, it's a draw</li>
+          </ul>
+        </div>
+
+        <div className="rule-section">
+          <h4>🔗 Blockchain Features</h4>
+          <ul>
+            <li>Connect your wallet to the Somnia testnet</li>
+            <li>Register a unique nickname stored on-chain</li>
+            <li>All game results and stats are permanently recorded</li>
+            <li>Compete on the global leaderboard</li>
           </ul>
         </div>
 

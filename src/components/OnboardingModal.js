@@ -199,7 +199,7 @@ const OnboardingModal = ({ onComplete }) => {
         {step === 2 && (
           <>
             <Title>Select Game Mode</Title>
-            <Description>Pick your preferred hand cricket mode.</Description>
+            <Description>Pick your preferred Somnia Hand Cricket mode.</Description>
             <ModeGrid>
               <ModeCard selected={mode==='classic'} onClick={()=>handleSelectMode('classic')}>
                 <ModeIcon>🏏</ModeIcon>

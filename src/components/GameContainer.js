@@ -6,7 +6,6 @@ import ChoicePhase from './ChoicePhase';
 import PlayPhase from './PlayPhase';
 import ResultPhase from './ResultPhase';
 import GameLog from './GameLog';
-import Rules from './Rules';
 import Prompt from './Prompt';
 import './GameContainer.css';
 import styled from 'styled-components';
@@ -97,8 +96,8 @@ const GameContainer = () => {
         />
       )}
       <div className="game-title">
-        <h1>Hand Cricket</h1>
-        <p className="subtitle">A Modern Cricket Experience</p>
+        <h1>Somnia Hand Cricket</h1>
+        <p className="subtitle">Blockchain-Powered Cricket Experience</p>
       </div>
       {/* Show mode selector only before the toss phase starts */}
       {phase === 'toss' && (
@@ -110,7 +109,6 @@ const GameContainer = () => {
       </div>
       <div className="game-footer">
         <GameLog />
-        <Rules />
       </div>
     </div>
   );

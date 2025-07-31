@@ -58,7 +58,7 @@
 
 .game-footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
   padding: 20px;
   background: #f8f9fa;

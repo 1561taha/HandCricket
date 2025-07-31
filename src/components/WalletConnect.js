@@ -122,21 +122,20 @@ function WalletConnect({ setContract, setAddress }) {
       // Check if nickname is already registered
       try {
         const player = await contractInstance.getPlayer(addr);
-        console.log('getPlayer result:', player);
         if (player && player.exists) {
           setRegisteredNickname(player.nickname);
         } else {
           setRegisteredNickname("");
         }
       } catch (err) {
-        // Only log unexpected errors
-        if (!err.reason || err.reason !== "Not registered") {
-          console.error('getPlayer error:', err);
-        }
         setRegisteredNickname("");
       }
     } catch (err) {
-      setFeedback("Failed to connect wallet");
+      if (err.message === "WRONG_NETWORK") {
+        setFeedback("⚠️ Please switch to Somnia testnet in MetaMask to continue");
+      } else {
+        setFeedback("Failed to connect wallet");
+      }
     }
   }
 
@@ -157,13 +156,11 @@ function WalletConnect({ setContract, setAddress }) {
       // Re-fetch player info
       try {
         const player = await contract.getPlayer(address);
-        console.log('getPlayer after register:', player);
         if (player && player.exists) {
           setRegisteredNickname(player.nickname);
         }
       } catch (err) {
         setRegisteredNickname(nickname.trim());
-        console.error('getPlayer after register error:', err);
       }
     } catch (err) {
       if (err && err.message && err.message.includes("Nickname taken")) {

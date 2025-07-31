@@ -4,7 +4,7 @@ import Leaderboard from "./components/Leaderboard";
 import PlayerProfile from "./components/PlayerProfile";
 import { GameProvider } from './context/GameContext';
 import GameContainer from './components/GameContainer';
-import HowToPlayPage from './components/HowToPlayPage';
+import HowToPlayModal from './components/HowToPlayModal';
 import styled from "styled-components";
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -39,6 +39,25 @@ const Sidebar = styled.div`
   }
 `;
 
+const HowToPlayButton = styled.button`
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);
+  transition: all 0.2s;
+  margin-bottom: 16px;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+  }
+`;
+
 const MainArea = styled.div`
   flex: 1;
   min-width: 0;
@@ -53,7 +72,7 @@ const MainArea = styled.div`
 
 const LeaderboardWrapper = styled.div`
   margin: 40px auto 0 auto;
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
   @media (max-width: 1000px) {
     max-width: 98vw;
@@ -63,15 +82,18 @@ const LeaderboardWrapper = styled.div`
 function App() {
   const [contract, setContract] = useState(null);
   const [address, setAddress] = useState("");
+  const [isHowToPlayOpen, setIsHowToPlayOpen] = useState(false);
 
   return (
     <BrowserRouter>
       <GameProvider contract={contract}>
         <Routes>
-          <Route path="/how-to-play" element={<HowToPlayPage />} />
           <Route path="/" element={
             <AppBg>
               <Sidebar>
+                <HowToPlayButton onClick={() => setIsHowToPlayOpen(true)}>
+                  📖 How to Play
+                </HowToPlayButton>
                 <WalletConnect setContract={setContract} setAddress={setAddress} />
                 <PlayerProfile contract={contract} address={address} />
               </Sidebar>
@@ -84,6 +106,10 @@ function App() {
             </AppBg>
           } />
         </Routes>
+        <HowToPlayModal 
+          isOpen={isHowToPlayOpen} 
+          onClose={() => setIsHowToPlayOpen(false)} 
+        />
       </GameProvider>
       <Analytics />
     </BrowserRouter>

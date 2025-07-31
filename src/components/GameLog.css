@@ -5,9 +5,12 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
-  height: 400px;
+  height: 600px;
   display: flex;
   flex-direction: column;
+  min-height: 500px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .log-header {
@@ -145,6 +148,26 @@
   color: #17a2b8;
 }
 
+.log-entry.initial {
+  border-left-color: #667eea;
+  background: rgba(102, 126, 234, 0.08);
+  opacity: 0.9;
+}
+
+.log-entry.initial .log-icon {
+  color: #667eea;
+}
+
+.log-entry.initial .log-text {
+  color: #555;
+  font-weight: 600;
+}
+
+.log-entry.initial .log-time {
+  color: #667eea;
+  font-weight: 500;
+}
+
 /* Scrollbar styling */
 .log-container::-webkit-scrollbar {
   width: 6px;
@@ -198,7 +221,8 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .game-log {
-    height: 300px;
+    height: 400px;
+    min-height: 350px;
   }
   
   .log-header {
@@ -238,7 +262,8 @@
 
 @media (max-width: 480px) {
   .game-log {
-    height: 250px;
+    height: 350px;
+    min-height: 300px;
   }
   
   .log-header {

@@ -1,9 +1,22 @@
 import { ethers } from "ethers";
 
-// Replace with your contract address
+// Somnia testnet configuration
+export const SOMNIA_TESTNET = {
+  chainId: "0xc488", // 50312 in hex
+  chainName: "Somnia Testnet",
+  nativeCurrency: {
+    name: "Somnia Test Token",
+    symbol: "STT",
+    decimals: 18
+  },
+  rpcUrls: ["https://dream-rpc.somnia.network"],
+  blockExplorerUrls: ["https://somnia-devnet.socialscan.io"]
+};
+
+// Contract address - keeping the original working one
 export const CONTRACT_ADDRESS = "0xB5B004edbF056A94acA947adB565F4d594247EA8";
 
-// Paste your ABI here (replace the ... below)
+// Original working ABI
 export const CONTRACT_ABI = [
     {
         "inputs": [
@@ -138,8 +151,25 @@ export const CONTRACT_ABI = [
     }
 ];
 
+// Check if user is on Somnia testnet
+export async function checkNetwork() {
+  if (!window.ethereum) {
+    throw new Error("MetaMask not found");
+  }
+  
+  const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+  return chainId === SOMNIA_TESTNET.chainId;
+}
+
 export async function connectWallet() {
   if (!window.ethereum) throw new Error("MetaMask not found");
+  
+  // Check if user is on correct network
+  const isOnCorrectNetwork = await checkNetwork();
+  if (!isOnCorrectNetwork) {
+    throw new Error("WRONG_NETWORK");
+  }
+  
   const [account] = await window.ethereum.request({ method: "eth_requestAccounts" });
   return account;
 }

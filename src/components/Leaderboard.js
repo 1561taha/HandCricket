@@ -8,7 +8,7 @@ const fadeIn = keyframes`
 `;
 
 const Card = styled.div`
-  max-width: 500px;
+  max-width: 1200px;
   margin: 0 auto;
   background: #fff;
   border-radius: 20px;
@@ -84,6 +84,9 @@ const TableWrap = styled.div`
   @media (max-width: 600px) {
     font-size: 0.95rem;
   }
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const Table = styled.table`
@@ -95,27 +98,49 @@ const Table = styled.table`
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(102, 126, 234, 0.07);
   border: 1.5px solid #e2e8f0;
+  
+  @media (max-width: 768px) {
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    border-radius: 8px;
+  }
 `;
 
 const Th = styled.th`
-  background: #667eea;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.08rem;
-  padding: 14px 8px;
-  letter-spacing: 0.02em;
-  border-right: 1px solid #5a67d8;
-  &:last-child {
-    border-right: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 0.8rem;
+  text-align: left;
+  font-size: 1rem;
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.8rem;
   }
 `;
 
 const Td = styled.td`
-  padding: 12px 8px;
-  text-align: center;
-  font-size: 1.05rem;
+  padding: 1rem 0.8rem;
   border-bottom: 1px solid #e2e8f0;
-  background: #fff;
+  font-size: 1rem;
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.8rem;
+  }
 `;
 
 const Tr = styled.tr`

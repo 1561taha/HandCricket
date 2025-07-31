@@ -116,7 +116,23 @@ const gameReducer = (state, action) => {
       };
     
     case 'SET_MODE':
-      return { ...state, mode: action.payload, ...getModeSettings(action.payload) };
+      return {
+        ...state,
+        mode: action.payload,
+        ...getModeSettings(action.payload),
+        currentOver: 0,
+        currentBall: 0,
+        playerScore: 0,
+        playerWickets: 0,
+        computerScore: 0,
+        computerWickets: 0,
+        inningsCompleted: 0,
+        target: 0,
+        gameOver: false,
+        gameLog: [],
+        lastPlayerChoice: null,
+        lastComputerChoice: null,
+      };
     
     default:
       return state;
@@ -343,6 +359,8 @@ export const GameProvider = ({ children, contract }) => {
   const setMode = (mode) => {
     dispatch({ type: 'SET_MODE', payload: mode });
   };
+
+
 
   // Check game status whenever state changes
   useEffect(() => {

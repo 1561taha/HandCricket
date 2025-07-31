@@ -95,8 +95,8 @@ function PlayerProfile({ contract, address }) {
   const fetchPlayer = async () => {
     if (contract && address) {
       setLoading(true);
-      try {
-        const p = await contract.getPlayer(address);
+          try {
+      const p = await contract.getPlayer(address);
         if (p && p.exists) {
           setPlayer(p);
         } else {
